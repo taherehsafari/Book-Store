@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Book Store</title>
+</head>
+<body>
+
+    <header>
+        <h1>Book Store</h1>
+    </header>
+
+    <div class="container">
+
+        <div class="left-section">
+
+            <button id="addBtn" class="new-book">New Book</button>
+
+            <div class="filter-container">
+                <h4>Search Books</h4>
+
+                <label for="filter-genre">Genre</label><br>                                                                                      
+
+                <input type="checkbox" id="filter-genre-all" name="filter-genre" value="">
+                <label for="filter-genre-all">All</label><br>
+                
+                <input type="checkbox" id="filter-genre-fantasy" name="filter-genre" value="Fantasy">
+                <label for="filter-genre-fantasy">Fantasy</label><br>
+
+                <input type="checkbox" id="filter-genre-horror" name="filter-genre" value="Horror">
+                <label for="filter-genre-horror">Horror</label><br>
+
+                <input type="checkbox" id="filter-genre-comedy" name="filter-genre" value="Comedy">
+                <label for="filter-genre-comedy">Comedy</label><br>
+
+                <input type="checkbox" id="filter-genre-action" name="filter-genre" value="Action">
+                <label for="filter-genre-action">Action</label><br>
+
+                <button id="filter-btn">Filter</button>
+
+            </div>
+
+        </div>
+
+        <div class="right-section"> 
+            <ul id="book-container"></ul>
+        </div>
+
+    </div>
+
+    <div id="popupOverlay" class="overlay-container"> 
+        <div class="popup-box"> 
+            <h2 style="color: black;">Add New Book</h2> 
+            <form class="form-container"> 
+
+                <input id="book-photo" type="file" onchange="previewFile()">
+                <img src="" width="80px" height="120px" alt="Image preview...">
+
+                <label class="form-label" for="title">Title:</label> 
+                <input class="form-input" type="text" id="title"> 
+
+                <label class="form-label" for="author">Author:</label> 
+                <input class="form-input" type="text" id="author"> 
+
+                <label class="form-label" for="year">Year:</label> 
+                <input class="form-input" type="text" id="year"> 
+
+                <label class="form-label" for="genre">Genre:</label> 
+                <input class="form-input" type="text" id="genre"> 
+
+                <button id="btn-submit" type="submit"> Add Book </button> 
+            </form> 
+
+            <button id="btn-close-popup"> Close </button> 
+        </div> 
+    </div>
+
+
+<script src="/app.js"></script>
+    
+</body>
+</html>
