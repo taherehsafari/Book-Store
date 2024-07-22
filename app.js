@@ -5,14 +5,14 @@ let file = document.querySelector('#book-photo');
 let title = document.querySelector("#title")
 let author = document.querySelector("#author")
 let year = document.querySelector("#year")
-let genre = document.querySelector("#genre")
+let genre = document.querySelector("#select-genre")
 let addBookBtn = document.getElementById("addBtn")
 let submitBtn = document.getElementById("btn-submit")
 let closeBtn = document.getElementById("btn-close-popup")
 
 // Add Event Listner
 addBookBtn.addEventListener("click", togglePopup)
-submitBtn.addEventListener("click", addBookToList )
+submitBtn.addEventListener("click", checkForm )
 closeBtn.addEventListener("click", togglePopup)
 
 // ---------- Functions ----------
@@ -47,7 +47,7 @@ function getBookData() {
 }
 
 // Function That Creates Book Object
-function NewBook(bookDetails) {
+function Book(bookDetails) {
 
     this.file = bookDetails.file
     this.title = bookDetails.title
@@ -57,16 +57,27 @@ function NewBook(bookDetails) {
 
 }
 
-// Add New Book To Book List
-function addBookToList(e) {
+function checkForm(e){
 
     e.preventDefault()
+
+    if( file.value !== "" && title.value !== "" && author.value !== "" && year.value !=="" && genre.value !==""){
+        addBookToList()
+    }
+    
+    else{
+        alert("Complete The Form Please!")
+    }
+}
+
+// Add New Book To Book List
+function addBookToList() {
 
     // Get Input Data
     let bookData = getBookData()
   
     // New Book Object 
-    let newBook = new NewBook(bookData)
+    let newBook = new Book(bookData)
   
     // Add The New Book To The Beginning Of The List
     bookList.unshift(newBook)
@@ -79,6 +90,9 @@ function addBookToList(e) {
 
     previewFile()
     displayList()
+
+    // Save To Local Storage
+    localStorage.setItem("bookList", JSON.stringify(bookList))
 
     console.log(bookList)
 }
@@ -96,12 +110,14 @@ function displayList() {
     for (let book of bookList) {
 
         let li = document.createElement('li')
-        let img = document.createElement('img')
 
-        li.textContent = `Title: ${book.title} -- Author: ${book.author} -- Year: ${book.year} -- Genre: ${book.genre}`
-        img.src = URL.createObjectURL(book.file);
-
-        li.appendChild(img)
+        li.innerHTML = `
+            <img src="${URL.createObjectURL(book.file)}" alt="${book.title} Book Cover">
+            <h2>${book.title}</h2>
+            <p>Author: ${book.author}</p>
+            <p>Year: ${book.year}</p>
+            <p>Genre: ${book.genre}</p>
+        `
         bookListContainer.appendChild(li)
 
     }
@@ -125,3 +141,10 @@ function previewFile() {
     }
 
 }
+
+// function loadBooksFromStorage() {
+//     if (localStorage.getItem("bookList")) {
+//       bookList = JSON.parse(localStorage.getItem("bookList"));
+//     }
+// }
+  

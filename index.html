@@ -26,17 +26,17 @@
                 <input type="checkbox" id="filter-genre-all" name="filter-genre" value="">
                 <label for="filter-genre-all">All</label><br>
                 
-                <input type="checkbox" id="filter-genre-fantasy" name="filter-genre" value="Fantasy">
+                <input type="checkbox" id="filter-genre-fantasy" name="filter-genre" value="fantasy">
                 <label for="filter-genre-fantasy">Fantasy</label><br>
 
-                <input type="checkbox" id="filter-genre-horror" name="filter-genre" value="Horror">
-                <label for="filter-genre-horror">Horror</label><br>
+                <input type="checkbox" id="filter-genre-mystery" name="filter-genre" value="mystery">
+                <label for="filter-genre-mystery">Mystery</label><br>
 
-                <input type="checkbox" id="filter-genre-comedy" name="filter-genre" value="Comedy">
-                <label for="filter-genre-comedy">Comedy</label><br>
+                <input type="checkbox" id="filter-genre-novel" name="filter-genre" value="novel">
+                <label for="filter-genre-novel">Novel</label><br>
 
-                <input type="checkbox" id="filter-genre-action" name="filter-genre" value="Action">
-                <label for="filter-genre-action">Action</label><br>
+                <input type="checkbox" id="filter-genre-history" name="filter-genre" value="history">
+                <label for="filter-genre-history">History</label><br>
 
                 <button id="filter-btn">Filter</button>
 
@@ -65,10 +65,16 @@
                 <input class="form-input" type="text" id="author"> 
 
                 <label class="form-label" for="year">Year:</label> 
-                <input class="form-input" type="text" id="year"> 
+                <input class="form-input" type="text" id="year" maxlength="4"> 
 
                 <label class="form-label" for="genre">Genre:</label> 
-                <input class="form-input" type="text" id="genre"> 
+                <select id="select-genre">
+                    <option value="">- Select -</option>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Mystery">Mystery</option>
+                    <option value="Novel">Novel</option>
+                    <option value="History">History</option>
+                </select>
 
                 <button id="btn-submit" type="submit"> Add Book </button> 
             </form> 
