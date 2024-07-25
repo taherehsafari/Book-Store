@@ -16,10 +16,13 @@
 
         <div class="left-section">
 
-            <button id="addBtn" class="new-book">New Book</button>
+            <button id="addBtn">New Book</button>
 
             <div class="filter-container">
                 <h4>Search Books</h4>
+
+                <input id="search-books" type="text">
+                <button id="search-btn">search</button><br>
 
                 <label for="filter-genre">Genre</label><br>                                                                                      
 
@@ -59,10 +62,10 @@
                 <img src="" width="80px" height="120px" alt="Image preview...">
 
                 <label class="form-label" for="title">Title:</label> 
-                <input class="form-input" type="text" id="title"> 
+                <input class="form-input" type="text" id="title" maxlength="10"> 
 
                 <label class="form-label" for="author">Author:</label> 
-                <input class="form-input" type="text" id="author"> 
+                <input class="form-input" type="text" id="author" maxlength="10"> 
 
                 <label class="form-label" for="year">Year:</label> 
                 <input class="form-input" type="text" id="year" maxlength="4"> 

@@ -7,6 +7,7 @@ let author = document.querySelector("#author")
 let year = document.querySelector("#year")
 let genre = document.querySelector("#select-genre")
 let filterBtn = document.getElementById("filter-btn")
+let searchBtn = document.getElementById("search-btn")
 let addBookBtn = document.getElementById("addBtn")
 let submitBtn = document.getElementById("btn-submit")
 let closeBtn = document.getElementById("btn-close-popup")
@@ -16,6 +17,7 @@ addBookBtn.addEventListener("click", togglePopup)
 submitBtn.addEventListener("click", checkForm )
 closeBtn.addEventListener("click", togglePopup)
 filterBtn.addEventListener("click" , filterBook)
+searchBtn.addEventListener("click", searchBook)
 
 // ---------- Functions ----------
 
@@ -157,13 +159,11 @@ function loadBooksFromStorage() {
 
 // Filter Books
 function filterBook(){
-    
-    // Array For Selected Genres
-    // let selectedGenres = []
 
     // Get Selected Genre Value
     let checkedBoxes = document.querySelector('input[name="filter-genre"]:checked').value
     console.log(checkedBoxes)
+
     // Filter Book List Based on Genre
     let filteredBooks = bookList.filter((book) => book.genre === checkedBoxes)
 
@@ -189,4 +189,39 @@ function filterBook(){
         // Display a message if no books match the filter
         bookListContainer.innerHTML = `<p> No books found </p>`;
     }
+}
+
+// Search Books
+function searchBook(){
+
+    // Get The Search Input Value
+    let searchBox = document.querySelector("#search-books").value.toLowerCase()
+
+    let searchedTitle = []
+
+    if (searchBox) {
+        searchedTitle = bookList.filter((book) => book.title.toLowerCase().includes(searchBox))
+    }
+
+    // Clear the existing book list display
+    let bookListContainer = document.getElementById("book-container")
+    bookListContainer.textContent = ""
+
+    if (searchedTitle.length > 0) {
+        for (let book of searchedTitle) {
+        let li = document.createElement('li');
+        li.innerHTML = `
+            <img src="./img/book-img.jpg" alt="${book.title} Book Cover">
+            <h2>${book.title}</h2>
+            <p>Author: ${book.author}</p>
+            <p>Year: ${book.year}</p>
+            <p>Genre: ${book.genre}</p>
+        `;
+        bookListContainer.appendChild(li);
+        }
+    } else {
+        // Display a message if no books match the search
+        bookListContainer.innerHTML = `<p> No books found for "${searchBox}" </p>`;
+    }
+
 }
