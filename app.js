@@ -6,6 +6,7 @@ let title = document.querySelector("#title")
 let author = document.querySelector("#author")
 let year = document.querySelector("#year")
 let genre = document.querySelector("#select-genre")
+let filterBtn = document.getElementById("filter-btn")
 let addBookBtn = document.getElementById("addBtn")
 let submitBtn = document.getElementById("btn-submit")
 let closeBtn = document.getElementById("btn-close-popup")
@@ -14,6 +15,7 @@ let closeBtn = document.getElementById("btn-close-popup")
 addBookBtn.addEventListener("click", togglePopup)
 submitBtn.addEventListener("click", checkForm )
 closeBtn.addEventListener("click", togglePopup)
+filterBtn.addEventListener("click" , filterBook)
 
 // ---------- Functions ----------
 
@@ -25,6 +27,8 @@ function togglePopup() {
 
 // Array For Saving Book Data
 let bookList = []
+
+loadBooksFromStorage()
 
 // Get Book Data
 function getBookData() {
@@ -61,7 +65,7 @@ function checkForm(e){
 
     e.preventDefault()
 
-    if( file.value !== "" && title.value !== "" && author.value !== "" && year.value !=="" && genre.value !==""){
+    if(title.value !== "" && author.value !== "" && year.value !=="" && genre.value !==""){
         addBookToList()
     }
     
@@ -112,7 +116,7 @@ function displayList() {
         let li = document.createElement('li')
 
         li.innerHTML = `
-            <img src="${URL.createObjectURL(book.file)}" alt="${book.title} Book Cover">
+            <img src="./img/book-img.jpg" alt="${book.title} Book Cover">
             <h2>${book.title}</h2>
             <p>Author: ${book.author}</p>
             <p>Year: ${book.year}</p>
@@ -142,9 +146,47 @@ function previewFile() {
 
 }
 
-// function loadBooksFromStorage() {
-//     if (localStorage.getItem("bookList")) {
-//       bookList = JSON.parse(localStorage.getItem("bookList"));
-//     }
-// }
+function loadBooksFromStorage() {
+    
+    if (localStorage.getItem("bookList")) {
+      bookList = JSON.parse(localStorage.getItem("bookList"));
+      displayList()
+    }
+}
   
+
+// Filter Books
+function filterBook(){
+    
+    // Array For Selected Genres
+    // let selectedGenres = []
+
+    // Get Selected Genre Value
+    let checkedBoxes = document.querySelector('input[name="filter-genre"]:checked').value
+    console.log(checkedBoxes)
+    // Filter Book List Based on Genre
+    let filteredBooks = bookList.filter((book) => book.genre === checkedBoxes)
+
+    // Clear the existing book list display
+    let bookListContainer = document.getElementById("book-container")
+    bookListContainer.textContent = ""
+
+    if (filteredBooks.length > 0) {
+
+        for (let book of filteredBooks) {
+          let li = document.createElement('li');
+          li.innerHTML = `
+            <img src="./img/book-img.jpg" alt="${book.title} Book Cover">
+            <h2>${book.title}</h2>
+            <p>Author: ${book.author}</p>
+            <p>Year: ${book.year}</p>
+            <p>Genre: ${book.genre}</p>
+          `
+          bookListContainer.appendChild(li);
+        }
+    }
+    else {
+        // Display a message if no books match the filter
+        bookListContainer.innerHTML = `<p> No books found </p>`;
+    }
+}
