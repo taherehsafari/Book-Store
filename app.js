@@ -120,9 +120,9 @@ function displayList() {
         li.innerHTML = `
             <img src="./img/book-img.jpg" alt="${book.title} Book Cover">
             <h2>${book.title}</h2>
-            <p>Author: ${book.author}</p>
-            <p>Year: ${book.year}</p>
-            <p>Genre: ${book.genre}</p>
+            <p>نویسنده: ${book.author}</p>
+            <p>سال انتشار: ${book.year}</p>
+            <p>ژانر: ${book.genre}</p>
         `
         bookListContainer.appendChild(li)
 
@@ -178,16 +178,16 @@ function filterBook(){
           li.innerHTML = `
             <img src="./img/book-img.jpg" alt="${book.title} Book Cover">
             <h2>${book.title}</h2>
-            <p>Author: ${book.author}</p>
-            <p>Year: ${book.year}</p>
-            <p>Genre: ${book.genre}</p>
+            <p>نویسنده: ${book.author}</p>
+            <p>سال انتشار: ${book.year}</p>
+            <p>ژانر: ${book.genre}</p>
           `
           bookListContainer.appendChild(li);
         }
     }
     else {
         // Display a message if no books match the filter
-        bookListContainer.innerHTML = `<p> No books found </p>`;
+        bookListContainer.innerHTML = `<p> کتابی با این ژانر پیدا نشد. </p>`;
     }
 }
 
@@ -213,15 +213,15 @@ function searchBook(){
         li.innerHTML = `
             <img src="./img/book-img.jpg" alt="${book.title} Book Cover">
             <h2>${book.title}</h2>
-            <p>Author: ${book.author}</p>
-            <p>Year: ${book.year}</p>
-            <p>Genre: ${book.genre}</p>
+            <p>نویسنده: ${book.author}</p>
+            <p>سال انتشار: ${book.year}</p>
+            <p>ژانر: ${book.genre}</p>
         `;
         bookListContainer.appendChild(li);
         }
     } else {
         // Display a message if no books match the search
-        bookListContainer.innerHTML = `<p> No books found for "${searchBox}" </p>`;
+        bookListContainer.innerHTML = `<p> کتابی به اسم "${searchBox}" پیدا نشد. </p>`;
     }
 
 }

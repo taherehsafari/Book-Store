@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,80 +9,119 @@
 <body>
 
     <header>
-        <h1>Book Store</h1>
+        <a href=""><h1>کتابخانه</h1></a>
+        
+        <div class="search-section">
+            <input id="search-books" type="text" placeholder="جستجو">
+            <button id="search-btn"> 
+                <svg class="svg-icon" viewBox="0 0 20 20">
+                    <path d="M18.125,15.804l-4.038-4.037c0.675-1.079,1.012-2.308,1.01-3.534C15.089,4.62,12.199,1.75,8.584,1.75C4.815,1.75,1.982,4.726,2,8.286c0.021,3.577,2.908,6.549,6.578,6.549c1.241,0,2.417-0.347,3.44-0.985l4.032,4.026c0.167,0.166,0.43,0.166,0.596,0l1.479-1.478C18.292,16.234,18.292,15.968,18.125,15.804 M8.578,13.99c-3.198,0-5.716-2.593-5.733-5.71c-0.017-3.084,2.438-5.686,5.74-5.686c3.197,0,5.625,2.493,5.64,5.624C14.242,11.548,11.621,13.99,8.578,13.99 M16.349,16.981l-3.637-3.635c0.131-0.11,0.721-0.695,0.876-0.884l3.642,3.639L16.349,16.981z"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div>
+
+        </div>
     </header>
 
     <div class="container">
 
-        <div class="left-section">
+        <div class="option-section">
 
-            <button id="addBtn">New Book</button>
+            <button id="addBtn">اضافه کردن کتاب</button>
 
             <div class="filter-container">
-                <h4>Search Books</h4>
+                <button class="dropdown-btn">دسته بندی ژانرها</button>
+                <div class="filter-dropdown">                                                                                     
+                    
+                    <input type="radio" id="filter-genre" name="filter-genre" value="فانتزی">
+                    <label>فانتزی</label><br>
 
-                <input id="search-books" type="text">
-                <button id="search-btn">search</button><br>
+                    <input type="radio" id="filter-genre" name="filter-genre" value="معمایی">
+                    <label>معمایی</label><br>
 
-                <label for="filter-genre">Genre</label><br>                                                                                      
+                    <input type="radio" id="filter-genre" name="filter-genre" value="رمان">
+                    <label>رمان</label><br>
 
-                <input type="radio" id="filter-genre" name="filter-genre" value="">
-                <label>All</label><br>
-                
-                <input type="radio" id="filter-genre" name="filter-genre" value="Fantasy">
-                <label>Fantasy</label><br>
+                    <input type="radio" id="filter-genre" name="filter-genre" value="تاریخی">
+                    <label>تاریخی</label><br>
 
-                <input type="radio" id="filter-genre" name="filter-genre" value="Mystery">
-                <label>Mystery</label><br>
-
-                <input type="radio" id="filter-genre" name="filter-genre" value="Novel">
-                <label>Novel</label><br>
-
-                <input type="radio" id="filter-genre" name="filter-genre" value="History">
-                <label>History</label><br>
-
-                <button id="filter-btn">Filter</button>
-
+                    <button id="filter-btn">جستجو</button>
+                </div>
             </div>
 
         </div>
 
-        <div class="right-section"> 
-            <ul id="book-container"></ul>
+        <div class="book-section"> 
+            <ul id="book-container">
+
+                <li>
+                    <img src="./img/book-img.jpg" alt="Book Cover">
+                    <h2>اسم کتاب</h2>
+                    <p>نویسنده: </p>
+                    <p>سال انتشار: </p>
+                    <p>ژانر: </p>
+                </li>
+
+                <li>
+                    <img src="./img/book-img.jpg" alt="Book Cover">
+                    <h2>اسم کتاب</h2>
+                    <p>نویسنده: </p>
+                    <p>سال انتشار: </p>
+                    <p>ژانر: </p>
+                </li>
+
+                <li>
+                    <img src="./img/book-img.jpg" alt="Book Cover">
+                    <h2>اسم کتاب</h2>
+                    <p>نویسنده: </p>
+                    <p>سال انتشار: </p>
+                    <p>ژانر: </p>
+                </li>
+
+                <li>
+                    <img src="./img/book-img.jpg" alt="Book Cover">
+                    <h2>اسم کتاب</h2>
+                    <p>نویسنده: </p>
+                    <p>سال انتشار: </p>
+                    <p>ژانر: </p>
+                </li>
+            </ul>
         </div>
 
     </div>
 
     <div id="popupOverlay" class="overlay-container"> 
         <div class="popup-box"> 
-            <h2 style="color: black;">Add New Book</h2> 
+            <h2 style="color: black;">کتاب جدید</h2> 
             <form class="form-container"> 
 
                 <input id="book-photo" type="file" onchange="previewFile()">
                 <img src="" width="80px" height="120px" alt="Image preview...">
 
-                <label class="form-label" for="title">Title:</label> 
+                <label class="form-label" for="title">نام کتاب:</label> 
                 <input class="form-input" type="text" id="title" maxlength="10"> 
 
-                <label class="form-label" for="author">Author:</label> 
+                <label class="form-label" for="author">نویسنده:</label> 
                 <input class="form-input" type="text" id="author" maxlength="10"> 
 
-                <label class="form-label" for="year">Year:</label> 
+                <label class="form-label" for="year">سال انتشار:</label> 
                 <input class="form-input" type="text" id="year" maxlength="4"> 
 
-                <label class="form-label" for="genre">Genre:</label> 
+                <label class="form-label" for="genre">ژانر:</label> 
                 <select id="select-genre">
-                    <option value="">- Select -</option>
-                    <option value="Fantasy">Fantasy</option>
-                    <option value="Mystery">Mystery</option>
-                    <option value="Novel">Novel</option>
-                    <option value="History">History</option>
+                    <option value="">- انتخاب -</option>
+                    <option value="فانتزی">فانتزی</option>
+                    <option value="معمایی">معمایی</option>
+                    <option value="رمان">رمان</option>
+                    <option value="تاریخی">تاریخی</option>
                 </select>
 
-                <button id="btn-submit" type="submit"> Add Book </button> 
+                <button id="btn-submit" type="submit"> اضافه کردن </button> 
             </form> 
 
-            <button id="btn-close-popup"> Close </button> 
+            <button id="btn-close-popup"> بستن </button> 
         </div> 
     </div>
 
