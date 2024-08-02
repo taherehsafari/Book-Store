@@ -149,12 +149,51 @@ function previewFile() {
 }
 
 function loadBooksFromStorage() {
-    
-    if (localStorage.getItem("bookList")) {
-      bookList = JSON.parse(localStorage.getItem("bookList"));
-      displayList()
+
+    let storedBooks = localStorage.getItem("bookList")
+
+    if (storedBooks) {
+        try {
+        bookList = JSON.parse(storedBooks)
+        } catch (error) {
+        bookList = []
+        }
+    } else {
+        bookList = [
+        {
+            file: "",
+            title: "کتاب اول",
+            author: "اسم نویسنده",
+            year: "1400",
+            genre: "فانتزی"
+        },
+        {
+            file: "",
+            title: "کتاب دو",
+            author: "اسم نویسنده",
+            year: "1400",
+            genre: "معمایی"
+        },
+        {
+            file: "",
+            title: "کتاب سه",
+            author: "اسم نویسنده",
+            year: "1400",
+            genre: "رمان"
+        },
+        {
+            file: "",
+            title: "کتاب چهار",
+            author: "اسم نویسنده",
+            year: "1400",
+            genre: "تاریخی"
+        },
+        ];
     }
+
+  displayList()
 }
+
   
 
 // Filter Books
