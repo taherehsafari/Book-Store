@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Book Store</title>
 </head>
+
 <body>
 
     <header>
         <a href="#"><img src="./img/Taghche.png" alt=""></a>
-        
+
         <div class="search-section">
             <input id="search-books" type="text" placeholder="جستجو">
-            <button id="search-btn"> 
+            <button id="search-btn">
                 <svg class="svg-icon" viewBox="0 0 20 20">
-                    <path d="M18.125,15.804l-4.038-4.037c0.675-1.079,1.012-2.308,1.01-3.534C15.089,4.62,12.199,1.75,8.584,1.75C4.815,1.75,1.982,4.726,2,8.286c0.021,3.577,2.908,6.549,6.578,6.549c1.241,0,2.417-0.347,3.44-0.985l4.032,4.026c0.167,0.166,0.43,0.166,0.596,0l1.479-1.478C18.292,16.234,18.292,15.968,18.125,15.804 M8.578,13.99c-3.198,0-5.716-2.593-5.733-5.71c-0.017-3.084,2.438-5.686,5.74-5.686c3.197,0,5.625,2.493,5.64,5.624C14.242,11.548,11.621,13.99,8.578,13.99 M16.349,16.981l-3.637-3.635c0.131-0.11,0.721-0.695,0.876-0.884l3.642,3.639L16.349,16.981z"></path>
+                    <path
+                        d="M18.125,15.804l-4.038-4.037c0.675-1.079,1.012-2.308,1.01-3.534C15.089,4.62,12.199,1.75,8.584,1.75C4.815,1.75,1.982,4.726,2,8.286c0.021,3.577,2.908,6.549,6.578,6.549c1.241,0,2.417-0.347,3.44-0.985l4.032,4.026c0.167,0.166,0.43,0.166,0.596,0l1.479-1.478C18.292,16.234,18.292,15.968,18.125,15.804 M8.578,13.99c-3.198,0-5.716-2.593-5.733-5.71c-0.017-3.084,2.438-5.686,5.74-5.686c3.197,0,5.625,2.493,5.64,5.624C14.242,11.548,11.621,13.99,8.578,13.99 M16.349,16.981l-3.637-3.635c0.131-0.11,0.721-0.695,0.876-0.884l3.642,3.639L16.349,16.981z">
+                    </path>
                 </svg>
             </button>
-        </div>
-
-        <div>
-
         </div>
     </header>
 
@@ -37,8 +37,8 @@
 
             <div class="filter-container">
                 <button class="dropdown-btn">دسته بندی ژانرها</button>
-                <div class="filter-dropdown">                                                                                     
-                    
+                <div class="filter-dropdown">
+
                     <input type="radio" id="filter-genre" name="filter-genre" value="فانتزی">
                     <label>فانتزی</label><br>
 
@@ -57,30 +57,64 @@
 
         </div>
 
-        <div class="book-section"> 
+        <div class="book-section">
             <ul id="book-container"></ul>
+        </div>
+
+        <div class="slider-section">
+            <div class="wrapper">
+                <i id="left" class="fa-solid  fas fa-angle-left"></i>
+                <ul class="carousel">
+                    <li class="card">
+                        <div class="img">
+                            <img src="./img/img1.jpg" alt=""draggable="false"> 
+                        </div>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="./img/img2.jpg" alt=""draggable="false"> 
+                        </div>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="./img/img3.jpg" alt=""draggable="false"> 
+                        </div>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="./img/img4.jpg" alt=""draggable="false"> 
+                        </div>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="./img/img5.jpg" alt=""draggable="false"> 
+                        </div>
+                    </li>
+                </ul>
+                <i id="right" class="fa-solid fas fa-angle-right"></i>
+            </div>
         </div>
 
     </div>
 
-    <div id="popupOverlay" class="overlay-container"> 
-        <div class="popup-box"> 
-            <h2 style="color: black;">کتاب جدید</h2> 
-            <form class="form-container"> 
+    <div id="popupOverlay" class="overlay-container">
+        <div class="popup-box">
+            <h2 style="color: black;">کتاب جدید</h2>
+            <form class="form-container">
 
                 <input id="book-photo" type="file" onchange="previewFile()">
                 <img src="" width="80px" height="120px" alt="Image preview...">
 
-                <label class="form-label" for="title">نام کتاب:</label> 
-                <input class="form-input" type="text" id="title" maxlength="10"> 
+                <label class="form-label" for="title">نام کتاب:</label>
+                <input class="form-input" type="text" id="title" maxlength="10">
 
-                <label class="form-label" for="author">نویسنده:</label> 
-                <input class="form-input" type="text" id="author" maxlength="10"> 
+                <label class="form-label" for="author">نویسنده:</label>
+                <input class="form-input" type="text" id="author" maxlength="10">
 
-                <label class="form-label" for="year">سال انتشار:</label> 
-                <input class="form-input" type="text" id="year" maxlength="4"> 
+                <label class="form-label" for="year">سال انتشار:</label>
+                <input class="form-input" type="text" id="year" maxlength="4">
 
-                <label class="form-label" for="genre">ژانر:</label> 
+                <label class="form-label" for="genre">ژانر:</label>
                 <select id="select-genre">
                     <option value="">- انتخاب -</option>
                     <option value="فانتزی">فانتزی</option>
@@ -89,15 +123,17 @@
                     <option value="تاریخی">تاریخی</option>
                 </select>
 
-                <button id="btn-submit" type="submit"> اضافه کردن </button> 
-            </form> 
+                <button id="btn-submit" type="submit"> اضافه کردن </button>
+            </form>
 
-            <button id="btn-close-popup"> بستن </button> 
-        </div> 
+            <button id="btn-close-popup"> بستن </button>
+        </div>
     </div>
 
 
-<script src="app.js"></script>
-    
+    <script src="app.js"></script>
+    <script src="slider.js"></script>
+
 </body>
+
 </html>
