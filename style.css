@@ -52,7 +52,9 @@ li img{
 
 /* ------- Header Styles ------- */
 header {
-    display: inline-block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     color: #2e2e31;
     background-color: #fdfdfd;
     padding: 20px;
@@ -249,13 +251,14 @@ header img {
 /* Add New Book Btn Styles */
 #addBtn {
     margin: 20px;
-    padding: 5px;
+    padding: 8px 12px;
     font-weight: bold;
     border-radius: 20px;
     border-style: none;
+    color: #f0f0f0;
     background-color:#00a2a4;
     cursor: pointer;
-    font-size: large;
+    font-size: 18px;
 } 
 
 #addBtn:hover{
@@ -320,12 +323,13 @@ header img {
 .book-section{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     margin: 20px;
     padding: 10px;
     background-color:#baf6f7;
-    height: auto;
     border-radius: 8px;
+    max-height: 400px;
+    overflow: auto;
 }
 
 
